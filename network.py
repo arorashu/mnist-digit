@@ -19,6 +19,20 @@ class Network:
                     for x, y in zip(sizes[:-1], sizes[1:])]
 
 
+  def save_model(self, filename):
+    """
+    save the model to a file on disk
+    """
+    model = np.asanyarray([self.num_layers, self.sizes, self.weights, self.biases], dtype=object)
+    np.save(filename, model, allow_pickle=True)
+
+
+  def load_model(self, filename):
+    """
+    load the neural network model and weights from filename
+    """
+    [self.num_layers, self.sizes, self.weights, self.biases] = np.load(filename, allow_pickle=True)
+
   def sigmoid(self, a):
     return 1.0 / (1.0 + np.exp(-a))
 
@@ -32,6 +46,7 @@ class Network:
     """Return the vector of partial derivatives \partial C_x /
     \partial a for the output activations."""
     return (output_activations-y)
+
 
   def feedforward(self, a):
     """Return output of a network if 'a' is input""" 
@@ -169,7 +184,6 @@ LOG_LEVEL = LOG.INFO
 def log(string, level):
   if LOG_LEVEL == LOG.INFO:
     print(f'info: {string}')
- 
 
 
 if __name__ == "__main__":
