@@ -1,9 +1,14 @@
 # MNIST digit recognizer
 
 
-Neural network based techniques to recognize digits from handwritten images in the MNIST dataset
+Neural network based techniques to recognize digits from handwritten images in the MNIST dataset.
+There are two main implementations in this code.
 
-## Setup
+1. [`network2.py`](./network2.py) has the code for a Neural network we create using just the `numpy` library.
+2. [`mnist-pytorch.ipynb`](mnist-pytorch.ipynb) does the same task using pytorch 
+
+
+## Setup to train neural network without Pytorch
 
 Create a python environment:
 
@@ -37,6 +42,7 @@ project directory as `infer.png`.
 
 ## References
 1. http://neuralnetworksanddeeplearning.com/chap1.html
+2. https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html
 
 
 
